@@ -11,15 +11,18 @@ import UserList from "./pages/Settings/Users/UserList";
 const App = () => {
     return (
         <Routes>
-            <Route path="/login" element={<Login />} />
-            <Route path="/" element={<Layout />}>
-                <Route path="settings" element={<Settings />} />
-                <Route path="companies" element={<Companylist />} />
-                <Route path="objects" element={<ObjectList />} />
-                <Route path="blocks" element={<BlockList />} />
-                <Route path="roles" element={<RoleList />} />
-                <Route path="users" element={<UserList />} />
-            </Route>
+            {localStorage.getItem("token") ? (
+                <Route path="/" element={<Layout />}>
+                    <Route path="settings" element={<Settings />} />
+                    <Route path="companies" element={<Companylist />} />
+                    <Route path="objects" element={<ObjectList />} />
+                    <Route path="blocks" element={<BlockList />} />
+                    <Route path="roles" element={<RoleList />} />
+                    <Route path="users" element={<UserList />} />
+                </Route>
+            ) : (
+                <Route path="/" element={<Login />} />
+            )}
         </Routes>
     );
 };

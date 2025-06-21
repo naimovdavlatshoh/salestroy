@@ -34,6 +34,7 @@ const Login: React.FC = () => {
                 localStorage.setItem("role", res.data.user.is_admin);
                 toast.success(t("login_success"));
                 setTimeout(() => {
+                    window.location.reload();
                     navigate("/");
                 }, 2000);
             })
