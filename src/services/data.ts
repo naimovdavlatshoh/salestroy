@@ -9,11 +9,7 @@ export const PostData = async (url: string, data: any) => {
     return response;
 };
 
-export const PostDataToken = async (
-    url: string,
-    data: any,
-    p0: { headers: { "Content-Type": string } }
-) => {
+export const PostDataToken = async (url: string, data: any) => {
     const response = await axios.post(BASE_URL + url, data, {
         headers: {
             "Content-Type": "multipart/formData",
@@ -22,11 +18,7 @@ export const PostDataToken = async (
     });
     return response;
 };
-export const PutDataToken = async (
-    url: string,
-    data: any,
-    p0: { headers: { "Content-Type": string } }
-) => {
+export const PutDataToken = async (url: string, data: any) => {
     const response = await axios.put(BASE_URL + url, data, {
         headers: {
             "Content-Type": "multipart/formData",

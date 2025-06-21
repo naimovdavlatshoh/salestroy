@@ -1,19 +1,11 @@
 import { usePageTitle } from "@/lib/PageTitleContext";
 import { GetDataSimple } from "@/services/data";
 import { useState, useRef, useEffect } from "react";
-import { useTranslation } from "react-i18next";
 
 const Navbar = () => {
-    const { i18n } = useTranslation();
     const { title } = usePageTitle();
-    const [language, setLanguage] = useState(i18n.language);
     const [isProfileOpen, setIsProfileOpen] = useState(false);
     const profileRef = useRef<HTMLDivElement>(null);
-
-    const handleChangeLanguage = (lang: "en" | "ru" | "uz") => {
-        setLanguage(lang);
-        i18n.changeLanguage(lang);
-    };
 
     console.log();
 
