@@ -7,7 +7,7 @@ const Settingsmenu = () => {
 
     return (
         <div>
-            <div className="shadow-md rounded-xl  py-2 flex justify-between items-center border border-gray-200 mb-5">
+            <div className="shadow-xs rounded-xl  py-2 flex justify-between items-center border border-gray-200 mb-5">
                 {cards?.map((card: any, idx) => (
                     <Link
                         to={card.to}

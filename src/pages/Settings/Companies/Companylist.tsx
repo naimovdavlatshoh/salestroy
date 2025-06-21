@@ -59,7 +59,7 @@ const CompanyList: React.FC = () => {
         <div>
             <Settingsmenu />
 
-            <div className="p-4 shadow-xs overflow-auto rounded-2xl border border-gray-200">
+            <div className="p-4 shadow-xs rounded-2xl border border-gray-200">
                 <div className="flex justify-between w-full mb-5">
                     <div className="flex items-center border w-4/5 py-2 px-5 rounded-lg  hover:border-gray-800">
                         <FiSearch color="gray" size={20} className="mr-3" />
@@ -80,23 +80,26 @@ const CompanyList: React.FC = () => {
                     </div>
                     <AddCompany changeStatus={changeStatus} />
                 </div>
-                <div className="w-full rounded-lg overflow-hidden">
+                <div className="w-full rounded-lg overflow-x-scroll">
                     {loading ? (
                         <LoaderContainer />
                     ) : (
-                        <table className="min-w-full text-sm text-left">
+                        <table className=" w-full text-sm text-left ">
                             <CustomThead
                                 columns={[
-                                    "ID",
-                                    t("company_name"),
-                                    t("director"),
-                                    t("tin"),
-                                    t("phone"),
-                                    t("bank"),
-                                    t("mfo"),
-                                    t("account_number"),
-                                    t("status"),
-                                    t("action"),
+                                    { name: "ID" },
+                                    { name: t("company_name") },
+                                    { name: t("director") },
+                                    { name: t("tin") },
+                                    { name: t("phone") },
+                                    { name: t("bank") },
+                                    { name: t("mfo") },
+                                    { name: t("account_number") },
+                                    { name: t("status") },
+                                    {
+                                        thClassName: "text-center",
+                                        name: t("action"),
+                                    },
                                 ]}
                             />
 
@@ -107,13 +110,13 @@ const CompanyList: React.FC = () => {
                                             key={company.id}
                                             className="even:bg-gray-50 h-[60px] odd:bg-white hover:bg-gray-50 border-b last:border-none"
                                         >
-                                            <td className="px-4 py-3">
+                                            <td className="px-4 py-3 ">
                                                 {company.id}
                                             </td>
-                                            <td className="px-4 py-3 font-medium">
+                                            <td className="px-4 py-3 font-medium text-nowrap">
                                                 {company.name}
                                             </td>
-                                            <td className="px-4 py-3">
+                                            <td className="px-4 py-3 text-nowrap">
                                                 {company.director_name}
                                             </td>
                                             <td className="px-4 py-3">
@@ -143,7 +146,7 @@ const CompanyList: React.FC = () => {
                                                 )}
                                             </td>
                                             <td className="px-4 py-3 ">
-                                                <div className="flex items-center gap-1">
+                                                <div className="flex items-center justify-center gap-1">
                                                     <ViewCompany
                                                         company={company}
                                                     />

@@ -43,6 +43,9 @@ const RoleList: React.FC = () => {
                 setLoading(false);
             }
         });
+        GetDataSimple(`v1/role/get/1`).then((res) => {
+            console.log(res);
+        });
     }, [search, status]);
 
     const handlePrevious = () => {
@@ -90,13 +93,16 @@ const RoleList: React.FC = () => {
                         <table className="min-w-full text-sm text-left">
                             <CustomThead
                                 columns={[
-                                    t("id"),
-                                    t("name"),
-                                    t("status"),
-                                    t("is_active"),
-                                    t("created_at"),
-                                    t("updated_at"),
-                                    t("actions"),
+                                    { name: t("id") },
+                                    { name: t("name") },
+                                    { name: t("status") },
+                                    { name: t("is_active") },
+                                    { name: t("created_at") },
+                                    { name: t("updated_at") },
+                                    {
+                                        thClassName: "text-center",
+                                        name: t("actions"),
+                                    },
                                 ]}
                             />
 
@@ -140,7 +146,7 @@ const RoleList: React.FC = () => {
                                                 ).toLocaleString()}
                                             </td>
                                             <td className="px-4 py-3">
-                                                <div className="flex items-center gap-1">
+                                                <div className="flex items-center justify-center gap-1">
                                                     <ViewRole object={role} />
                                                     <UpdateRole
                                                         changeStatus={

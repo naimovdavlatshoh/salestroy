@@ -87,13 +87,16 @@ const BlockList: React.FC = () => {
                         <table className="min-w-full text-sm text-left">
                             <CustomThead
                                 columns={[
-                                    "ID",
-                                    t("name"),
-                                    t("company_id"),
-                                    t("object_id"),
-                                    t("apartments_per_floor"),
-                                    t("status"),
-                                    t("actions"),
+                                    { name: "ID" },
+                                    { name: t("name") },
+                                    { name: t("company_id") },
+                                    { name: t("object_id") },
+                                    { name: t("apartments_per_floor") },
+                                    { name: t("status") },
+                                    {
+                                        thClassName: "text-center",
+                                        name: t("actions"),
+                                    },
                                 ]}
                             />
 
@@ -133,7 +136,7 @@ const BlockList: React.FC = () => {
                                                 )}
                                             </td>
                                             <td className="px-4 py-3 ">
-                                                <div className="flex items-center gap-1">
+                                                <div className="flex items-center justify-center gap-1">
                                                     <ViewBlock block={block} />
                                                     <UpdateBlock
                                                         changeStatus={

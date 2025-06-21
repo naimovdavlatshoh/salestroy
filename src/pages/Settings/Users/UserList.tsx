@@ -96,15 +96,18 @@ const UserList: React.FC = () => {
                         <table className="min-w-full text-sm text-left">
                             <CustomThead
                                 columns={[
-                                    t("id"),
-                                    t("full_name"),
-                                    t("login"),
-                                    t("role"),
-                                    t("status"),
-                                    t("is_admin"),
-                                    t("created_at"),
-                                    t("updated_at"),
-                                    t("actions"),
+                                    { name: t("id") },
+                                    { name: t("full_name") },
+                                    { name: t("login") },
+                                    { name: t("role") },
+                                    { name: t("status") },
+                                    { name: t("is_admin") },
+                                    { name: t("created_at") },
+                                    { name: t("updated_at") },
+                                    {
+                                        thClassName: "text-center",
+                                        name: t("actions"),
+                                    },
                                 ]}
                             />
                             <tbody>
@@ -153,16 +156,22 @@ const UserList: React.FC = () => {
                                                 ).toLocaleString()}
                                             </td>
                                             <td className="px-4 py-3">
-                                                <ViewUser user={user} />
-                                                <UpdateUser
-                                                    user={user}
-                                                    roles={roles}
-                                                    changeStatus={changeStatus}
-                                                />
-                                                <DeleteUser
-                                                    user={user}
-                                                    changeStatus={changeStatus}
-                                                />
+                                                <div className="flex justify-center items-center">
+                                                    <ViewUser user={user} />
+                                                    <UpdateUser
+                                                        user={user}
+                                                        roles={roles}
+                                                        changeStatus={
+                                                            changeStatus
+                                                        }
+                                                    />
+                                                    <DeleteUser
+                                                        user={user}
+                                                        changeStatus={
+                                                            changeStatus
+                                                        }
+                                                    />
+                                                </div>
                                             </td>
                                         </tr>
                                     ))

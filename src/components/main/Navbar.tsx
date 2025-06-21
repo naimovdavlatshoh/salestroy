@@ -1,4 +1,5 @@
 import { usePageTitle } from "@/lib/PageTitleContext";
+import { GetDataSimple } from "@/services/data";
 import { useState, useRef, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 
@@ -37,6 +38,12 @@ const Navbar = () => {
         };
     }, []);
 
+    const Logout = () => {
+        GetDataSimple(`auth/logout`).then((res) => {
+            console.log(res);
+        });
+    };
+
     return (
         <div className="w-full h-full flex items-center justify-between px-6 bg-white border-b relative">
             <p className="text-xl">{title}</p>
@@ -57,7 +64,10 @@ const Navbar = () => {
                             <button className="w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-100">
                                 Profile
                             </button>
-                            <button className="w-full text-left px-4 py-2 text-red-600 hover:bg-red-100">
+                            <button
+                                onClick={Logout}
+                                className="w-full text-left px-4 py-2 text-red-600 hover:bg-red-100"
+                            >
                                 Logout
                             </button>
                         </div>

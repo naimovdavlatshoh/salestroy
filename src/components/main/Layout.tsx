@@ -13,7 +13,7 @@ const Layout = () => {
             {/* Sidebar */}
             <div
                 className={`relative h-full border-r border-dashed border-gray-300 transition-all duration-300 ${
-                    isCollapsed ? "w-[5%]" : "w-[15%]"
+                    isCollapsed ? "w-[5%]" : "min-w-[15%]"
                 }`}
             >
                 {/* Toggle Button */}
@@ -33,7 +33,11 @@ const Layout = () => {
             </div>
 
             {/* Main section */}
-            <div className="flex-1 h-full flex flex-col">
+            <div
+                className={` ${
+                    isCollapsed ? "max-w-[95%] " : "max-w-[85%]"
+                } h-full w-full flex flex-col`}
+            >
                 {/* Navbar */}
                 <div className="h-[60px] ">
                     <Navbar />
@@ -42,7 +46,6 @@ const Layout = () => {
                 <div className="h-[calc(100vh-60px)] overflow-auto p-5">
                     <Outlet />
                     <LanguageSwitcher />{" "}
-               
                 </div>
             </div>
         </div>

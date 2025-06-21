@@ -83,18 +83,21 @@ const ObjectList: React.FC = () => {
                         <table className="min-w-full text-sm text-left">
                             <CustomThead
                                 columns={[
-                                    t("id"),
-                                    t("name"),
-                                    t("company_id"),
-                                    t("region"),
-                                    t("district"),
-                                    t("address"),
-                                    t("floors"),
-                                    t("blocks"),
-                                    t("start"),
-                                    t("end"),
-                                    t("status"),
-                                    t("actions"),
+                                    { name: t("id") },
+                                    { name: t("name") },
+                                    { name: t("company_id") },
+                                    { name: t("region") },
+                                    { name: t("district") },
+                                    { name: t("address") },
+                                    { name: t("floors") },
+                                    { name: t("blocks") },
+                                    { name: t("start") },
+                                    { name: t("end") },
+                                    { name: t("status") },
+                                    {
+                                        thClassName: "text-center",
+                                        name: t("actions"),
+                                    },
                                 ]}
                             />
                             <tbody>
@@ -146,7 +149,7 @@ const ObjectList: React.FC = () => {
                                                 )}
                                             </td>
                                             <td className="px-4 py-3">
-                                                <div className="flex items-center gap-1">
+                                                <div className="flex items-center justify-center gap-1">
                                                     <ViewObject
                                                         object={object}
                                                     />

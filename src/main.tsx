@@ -11,6 +11,7 @@ createRoot(document.getElementById("root")!).render(
     <StrictMode>
         <BrowserRouter>
             <PageTitleProvider>
+
                 <App />
                 <Toaster position="top-right" reverseOrder={false} />
             </PageTitleProvider>
